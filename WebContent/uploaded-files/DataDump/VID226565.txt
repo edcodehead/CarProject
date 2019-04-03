@@ -1,0 +1,1 @@
+Ford,Mustang,2001,133753,4200.0,Exterior: Red Engine: 3.8L V6 Transmission: Automatic 4-Speed Trim: Deluxe 2dr Convertible MPG City/Hwy: 17/25,2018-03-28,VID226565,2001-Red-Ford-Mustang.jpg

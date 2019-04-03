@@ -1,0 +1,115 @@
+.jumbotron {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+	margin-bottom: 0;
+	background-color: #fff;
+}
+
+@media ( min-width : 768px) {
+	.jumbotron {
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+	}
+}
+
+.jumbotron p:last-child {
+	margin-bottom: 0;
+}
+
+.jumbotron-heading {
+	font-weight: 300;
+}
+
+.jumbotron .container {
+	max-width: 40rem;
+}
+
+footer {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+footer p {
+	margin-bottom: .25rem;
+}
+
+.mainForm {
+	background-size: cover;
+	background-image:
+		url("https://www.gannett-cdn.com/-mm-/3ffbaa522434ddc4eb1111a97e6d966a2c9f64cc/c=0-36-1008-605/local/-/media/Phoenix/Phoenix/2014/07/18/1405705836000-phxdc5-6ek9k787clfasl7i739-original.jpg?width=3200&height=1680&fit=crop");
+	background-repeat: no-repeat;
+	margin-top: 5%;
+}
+
+.placeBorderHere {
+	border: 1px solid rgb(104, 103, 103);
+	background-color: rgba(0, 0, 0, 0.431);
+}
+
+.fancyTitle {
+	font-size: 3.25rem;
+	color: rgb(79, 9, 209);
+	font-family: 'Permanent Marker', cursive;
+	text-shadow: 1px 1px rgb(238, 234, 6);
+}
+
+.buySectionHeader {
+	margin-top: 2.5%;
+	margin-bottom: 2.5%;
+	font-size: 4rem;
+	text-shadow: 3px 1px red !important;
+	color: rgb(79, 9, 209);
+	font-family: 'Permanent Marker', cursive;
+}
+
+.titleLogo {
+	color: red;
+	text-shadow: 1px 1px #fff;
+	font-size: 3.5rem;
+}
+
+label {
+	color: white;
+	text-shadow: 2px 2px rgb(0, 0, 0);
+}
+
+.carDetails {
+	color: black;
+	margin: 5%;
+}
+
+.textDetails {
+	margin-top: 4%;
+}
+
+/**** Buy Car Customizations *****/
+#buyACarForm {
+	margin-bottom: 5%;
+}
+
+col-md-4 {
+	display: inline-block;
+}
+
+.specialPricingStyle {
+	color: green;
+	font-weight: bold;
+	margin: 5px;
+}
+
+a.btn.btn-success.bidButton {
+	margin-left: 3px;
+}
+
+a.btn.btn-warning.bidButton {
+	margin-left: 3px;
+}
+
+.modalLabel {
+	color: black;
+	text-shadow: none;
+}
+
+.bg-light {
+	background-color: #ebebeb !important;
+}

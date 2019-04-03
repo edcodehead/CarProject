@@ -1,0 +1,68 @@
+.jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+    .jumbotron {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+.jumbotron p:last-child {
+    margin-bottom: 0;
+}
+.jumbotron-heading {
+    font-weight: 300;
+}
+.jumbotron .container {
+    max-width: 40rem;
+}
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+footer p {
+    margin-bottom: .25rem;
+}
+
+
+.mainForm {
+    margin-top: 5%;
+}
+
+.placeBorderHere{
+    border: 1px solid rgb(104, 103, 103);
+    padding: 2%;
+}
+
+.buySectionHeader{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.fancyTitle{
+    font-size: 3.25rem;
+    color: rgb(79, 9, 209);
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 1px 1px rgb(238, 234, 6);
+
+}
+
+.titleLogo{
+    color: red;
+    text-shadow: 1px 1px #fff;
+    font-size: 3.5rem;
+}
+
+
+.carDetails {
+	color: black;
+}
+
+/**** Buy Car Customizations *****/
+
+.purchaseID {
+	display: none;
+}
