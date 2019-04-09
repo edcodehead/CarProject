@@ -74,126 +74,74 @@
 	</header>
 
 	<main role="main"> <!-- Start of form  -->
-
-
-
-
-	<div class="container mainForm">
-		<div class="row">
-			<div class="col"></div>
-			<div class="col-6 placeBorderHere">
-			<c:if test="${carDetails.tenPercentOfPrice != 0}">
-				<p class="bidTooLowMessage">Sorry, your bid was too low. Please place a bid greater than $${carDetails.price - carDetails.price * .10}0</p></c:if>
-				<h1 class="fancyTitle">Bid On This Car</h1>
-				<p>Place a bid on this vehicle. It qualifies for up to a 10% discount.</p>
-				<p>Today might be your lucky day to get a great discount!</p>
-				<p><strong>Current Price: </strong>$${carDetails.price}0</p> 
-				<img alt="" width="100%" height="45%"
-					src="img/${carDetails.imagePath}">
-				<form class="needs-validation" method="get"
-					action="BidNowCheckServlet">
-					<div class="form-group">
-						<label for="bidderFirstName">First Name: </label> <input
-							type="text" class="form-control" name="bidderFirstName"
-							id="bidderFirstName" placeholder="Enter your first name" required>
-						<div class="invalid-feedback">Please enter your first name</div>
-					</div>
-					<div class="form-group">
-						<label for="bidderLastName">Last Name: </label> <input type="text"
-							class="form-control" name="bidderLastName" id="bidderLastName"
-							placeholder="Enter last name" required>
-					</div>
-					<div class="form-group">
-						<label for="inputBid">Your offer: </label> <input type="text"
-							class="form-control" name="inputBid" id="inputBid"
-							placeholder="Enter an amount">
-					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-					<a type="submit" class="btn btn-danger"
-						href="http://localhost:8080/ServletTutorial/home">Cancel</a>
-
-				</form>
-			</div>
-			<div class="col"></div>
-		</div>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!--  	<div>
+	<div>
 		<div class="container mainForm">
 			<div class="row">
 				<div class="col"></div>
 				<div class="col-6 placeBorderHere">
-					<h1 class="fancyTitle">Purchase This Vehicle</h1>
+					<div>
+						<h1 class="fancyTitle">Thank You For Your Purchase!</h1>
 
-					<p>Below are the details of this vehicle</p>
-					<img alt="" width="100%" height="50%"
-						src="img/${carDetails.imagePath}">
-					<div class="carDetails">
-						<p>
-							<strong>Make: </strong>
-					out.print(carDetails.getMake());				%>
-						</p>
-						<p>
-							<strong>Model: </strong>
-					out.print(carDetails.getModel());				%>
-						</p>
-						<p>
-							<strong>Year: </strong>
-					out.print(carDetails.getYear());				%>
-						</p>
-						<p>
-							<strong>Mileage: </strong>
-					out.print(carDetails.getMileage());				%>
-						</p>
-						<p>
-							<strong>Price: </strongout.print(carDetails.getPrice());				%>
-						</p>
-						<p>
-							<strong>Description: </strong>
-					out.print(carDetails.getDescription());				%>
-						</p>
-					<form method="post" action="upload">
-							<div class="form-group">
-								<label for="buyerFirstName">First Name: </label> <input type="text"
-									class="form-control" name="buyerFirstName"
-									placeholder="Enter your first name">
-							</div>
-							<div class="form-group">
-								<label for="buyerLastName">Last Name: </label> <input type="text"
-									class="form-control" name="buyerLastName"
-									placeholder="Enter your last name">
-							</div>
-						</form> 
+						<p>Below are the details of your new car.</p>
+						<img alt="" width="100%" height="50%"
+							src="img/${carDetails.imagePath}">
+						<div class="carDetails">
+							<p>
+								<strong>Make: </strong>
+								<%
+									out.print(carDetails.getMake());
+								%>
+							</p>
+							<p>
+								<strong>Model: </strong>
+								<%
+									out.print(carDetails.getModel());
+								%>
+							</p>
+							<p>
+								<strong>Year: </strong>
+								<%
+									out.print(carDetails.getYear());
+								%>
+							</p>
+							<p>
+								<strong>Mileage: </strong>
+								<%
+									out.print(carDetails.getMileage());
+								%>
+							</p>
+							<p>
+								<strong>Original Price: </strong>$<%
+									out.print(carDetails.getPrice());
+								%>
+							</p>
+							<p>
+								<strong>Your Price: </strong>$<%
+									out.print(carDetails.getBidAmount());
+								%>
+							</p>
+							<p>
+								<strong>You saved: </strong>$<%
+									out.print(carDetails.getPrice() - carDetails.getBidAmount());
+								%>
+							</p>
+							<p>
+								<strong>Description: </strong>
+								<%
+									out.print(carDetails.getDescription());
+								%>
+							</p>
+
+							<a href="http://localhost:8080/ServletTutorial/home"
+								type="button" class="btn btn-primary float-right">Return</a>
+						</div>
 					</div>
-
 				</div>
 				<div class="col"></div>
 			</div>
-		</div>  --> </main>
+		</div>
+	</div>
+	</main>
 
 	<!-- Footer Section -->
 	<footer class="text-muted">
@@ -217,6 +165,5 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-
 </body>
 </html>

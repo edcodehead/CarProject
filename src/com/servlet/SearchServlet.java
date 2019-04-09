@@ -37,23 +37,36 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(true);
+		ArrayList<Car> inventory = (ArrayList<Car>) session.getAttribute("inventory");
+		ArrayList<Car> searchList = (ArrayList<Car>) session.getAttribute("searchList");
 		String searchInput = request.getParameter("Search");
 //		System.out.println("The search string is: " + searchInput);
 
-		HttpSession session = request.getSession(true);
-		ArrayList<Car> inventory = (ArrayList<Car>) session.getAttribute("inventory");
-		ArrayList<Car> searchByMakeDataList = (ArrayList<Car>) session.getAttribute("searchByMakeDataList");
-
-		if (searchByMakeDataList == null || searchByMakeDataList != null) {
-			searchByMakeDataList = new ArrayList<Car>();
+//		for (Car car : inventory) {
+//			switch (searchInput) {
+//			case 
+//		}
+		
+		if (searchList == null || searchList != null) {
+			searchList = new ArrayList<Car>();
 		}
 
 		for (Car car : inventory) {
 			if (car.getMake().equals(searchInput)) {
-				searchByMakeDataList.add(car);
+				searchList.add(car);
 //				session.removeAttribute("inventory");
-				session.setAttribute("searchByMakeDataList", searchByMakeDataList);
-			}
+				session.setAttribute("searchList", searchList);
+			} else if (car.getModel().equals(searchInput)) {
+				searchList.add(car);
+				session.setAttribute("searchList", searchList);
+			} else if (car.getPurchaseDate().equals(searchInput)) {
+				searchList.add(car);
+				session.setAttribute("searchList", searchList);
+			} else if (car.getId().equals(searchInput)) {
+				searchList.add(car);
+				session.setAttribute("searchList", searchList);
+			} 
 		}
 
 	RequestDispatcher rs = request.getRequestDispatcher("dashboard.jsp");rs.forward(request,response);
@@ -69,5 +82,17 @@ public class SearchServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+//	if (searchByMakeDataList == null || searchByMakeDataList != null) {
+//		searchByMakeDataList = new ArrayList<Car>();
+//	}
+//
+//	for (Car car : inventory) {
+//		if (car.getMake().equals(searchInput)) {
+//			searchByMakeDataList.add(car);
+////			session.removeAttribute("inventory");
+//			session.setAttribute("searchByMakeDataList", searchByMakeDataList);
+//		}
+//	}
 
 }

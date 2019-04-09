@@ -66,3 +66,9 @@ footer p {
 .purchaseID {
 	display: none;
 }
+
+p.bidTooLowMessage {
+	font-weight: bold;
+	color: red;
+	font-size: large;
+}

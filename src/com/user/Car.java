@@ -29,6 +29,10 @@ public class Car {
 	private String id;
 	private String imagePath;
 	private User buyer;
+	private User bidder;
+	private double bidAmount;
+	private double tenPercentOfPrice;
+	private boolean bidIsGood;
 	private Car[] list;
 	ArrayList<Car> inventory = null;
 
@@ -133,6 +137,38 @@ public class Car {
 
 	public void setBuyer(User buyer) {
 		this.buyer = buyer;
+	}
+	
+	public User getBidder() {
+		return bidder;
+	}
+
+	public void setBidder(User bidder) {
+		this.bidder = bidder;
+	}
+
+	public double getBidAmount() {
+		return bidAmount;
+	}
+
+	public void setBidAmount(double bidAmount) {
+		this.bidAmount = bidAmount;
+	}
+
+	public boolean getBidIsGood() {
+		return bidIsGood;
+	}
+
+	public void setBidIsGood(boolean bidIsGood) {
+		this.bidIsGood = bidIsGood;
+	}
+	
+	public double getTenPercentOfPrice() {
+		return tenPercentOfPrice;
+	}
+
+	public void setTenPercentOfPrice(double tenPercentOfPrice) {
+		this.tenPercentOfPrice = tenPercentOfPrice;
 	}
 
 	public boolean isSpecialPricing() {

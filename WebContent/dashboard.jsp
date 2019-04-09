@@ -7,7 +7,7 @@
 	ArrayList<Car> inventory = (ArrayList<Car>) session.getAttribute("inventory");
 %>
 <%
-	ArrayList<Car> searchByMakeDataList = (ArrayList<Car>) session.getAttribute("searchByMakeDataList");
+	ArrayList<Car> searchList = (ArrayList<Car>) session.getAttribute("searchList");
 %>
 <!doctype html>
 <html lang="en">
@@ -37,7 +37,7 @@
 			<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://localhost:8080/ServletTutorial/home"><strong
 				class="fancyTitle titleLogo">Car Dealer Pro</strong></a> <input
 				class="form-control form-control-dark w-100" type="text"
-				placeholder="Search" aria-label="Search" name="Search">
+				placeholder="Search by Make, Model, Purchase Date or Vehicle ID" aria-label="Search" name="Search">
 			<ul class="navbar-nav px-3">
 				<li class="nav-item text-nowrap"><a class="nav-link" href="#">Sign
 						out</a></li>
@@ -49,11 +49,11 @@
 			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
-						<li class="nav-item"><a class="nav-link active" href="ReportLogServlet">
-								<span data-feather="home"></span> Dashboard <span
+						<li class="nav-item dashboardlink"><a class="nav-link active" href="ReportLogServlet">
+								<span data-feather="home"></span> All Cars <span
 								class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"> <span
+				<!-- 		<li class="nav-item"><a class="nav-link" href="#"> <span
 								data-feather="file"></span> Bid Nows
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="#"> <span
@@ -62,7 +62,7 @@
 						<li class="nav-item"><a class="nav-link" href="#"> <span
 								data-feather="users"></span> Customers
 						</a></li>
-						<!--  	<li class="nav-item"><a class="nav-link" href="#"> <span
+						 	<li class="nav-item"><a class="nav-link" href="#"> <span
 								data-feather="bar-chart-2"></span> Reports
 						</a></li>
 						<li class="nav-item"><a class="nav-link" href="#"> <span
@@ -111,7 +111,7 @@
 			</div> --> <!--  	<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
 			<div class="inventoryArea">
 				<div class="row">
-					<h4>Inventory</h4>
+					<h4>All Cars</h4>
 					<div class="table-responsive">
 						<table class="table table-striped table-sm">
 							<thead>
@@ -128,7 +128,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								 	<c:if test="${inventory != null && searchByMakeDataList == null}">
+								 	<c:if test="${inventory != null && searchList == null}">
 									<c:forEach items="${inventory}" var="myCar">
 										<tr>
 											<td>${myCar.id}</td>
@@ -143,8 +143,8 @@
 										</tr>
 									</c:forEach>
 								</c:if>  
-								<c:if test="${searchByMakeDataList != null}">
-									<c:forEach items="${searchByMakeDataList}" var="myCar">
+								<c:if test="${searchList != null}">
+									<c:forEach items="${searchList}" var="myCar">
 										<tr>
 											<td>${myCar.id}</td>
 											<td>${myCar.purchaseDate}</td>

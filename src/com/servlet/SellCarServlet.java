@@ -68,6 +68,7 @@ public class SellCarServlet extends HttpServlet {
 		// -------------------------- TRY DAY 2 -------------------------------------//
 		
 		HttpSession session = request.getSession(true);
+		ArrayList<Car> inventory = (ArrayList<Car>) session.getAttribute("inventory");
 		
 		// Documentation: https://www.javacodegeeks.com/2013/08/file-upload-example-in-servlet-and-jsp.html
 		// And this was also helpful: https://happycoding.io/tutorials/java-server/uploading-files
@@ -116,8 +117,10 @@ public class SellCarServlet extends HttpServlet {
 				tempCar.setId(tempCar.generateID());
 				tempCar.setPurchaseDate(LocalDate.now().toString());
 				tempCar.saveFile();
+				inventory.add(tempCar);
 				
 				session.setAttribute("tempCar", tempCar);
+				session.setAttribute("inventory", inventory);
 				// File uploaded successfully
 //				request.setAttribute("message", "File Uploaded Successfully");
 			
@@ -128,7 +131,7 @@ public class SellCarServlet extends HttpServlet {
 		{
 //			request.setAttribute("message", "Sorry this Servlet only handles file upload request");
 		}
-
+		
 //		request.getRequestDispatcher("/confirmation-page.jsp").forward(request, response);
 		RequestDispatcher rs = request.getRequestDispatcher("/confirmation-page.jsp");
 		rs.forward(request, response);

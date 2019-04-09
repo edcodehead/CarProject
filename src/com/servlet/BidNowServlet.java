@@ -1,12 +1,7 @@
 package com.servlet;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,17 +15,16 @@ import com.user.Car;
 import com.user.User;
 
 /**
- * Servlet implementation class ReportLogServlet
+ * Servlet implementation class BidNowServlet
  */
-@WebServlet("/ReportLogServlet")
-public class ReportLogServlet extends HttpServlet {
+@WebServlet("/BidNowServlet")
+public class BidNowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-//	private final String myDirectoryPath = "C:\\Java Training\\Workspace\\ServletLab2\\ServletTutorial\\WebContent\\uploaded-files\\";
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReportLogServlet() {
+    public BidNowServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,32 +33,36 @@ public class ReportLogServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/**
-		 * We need to grab all the data like in index. This time we going to output to dashboard.jsp
-		 */
-		// Grab the session
+		String currentID = request.getParameter("id");
+//		System.out.println("The ID is: " + currentID);
 		HttpSession session = request.getSession(true);
-		// Assume there is an inventory in the session and grab it
 		ArrayList<Car> inventory = (ArrayList<Car>) session.getAttribute("inventory");
-		//Got sorting to work from this site: https://howtodoinjava.com/sort/collections-sort/
-		Comparator<Car> compareByPurchaseDate = (Car o1, Car o2) -> o1.getPurchaseDate().compareTo( o2.getPurchaseDate() );
-		Collections.sort(inventory, compareByPurchaseDate.reversed());
-		
-		ArrayList<Car> searchList = (ArrayList<Car>) session.getAttribute("searchList");
-
-		if (searchList != null) {
-			session.removeAttribute("searchList");;
+		Car carDetails = new Car();
+		for (Car car : inventory) {
+			if (car.getId().equals(currentID)) {
+				carDetails.setMake(car.getMake());
+				carDetails.setModel(car.getModel());
+				carDetails.setYear(car.getYear());
+				carDetails.setMileage(car.getMileage());
+				carDetails.setPrice(car.getPrice());
+				carDetails.setDescription(car.getDescription());
+				carDetails.setPurchaseDate(car.getPurchaseDate());
+				carDetails.setSoldStatus(car.getSoldStatus());
+				carDetails.setBuyer(car.getBuyer());
+				carDetails.setId(car.getId());
+				carDetails.setImagePath(car.getImagePath());
+			}
 		}
-
-		RequestDispatcher rs = request.getRequestDispatcher("dashboard.jsp");
+		
+		session.setAttribute("carDetails", carDetails);
+		
+		RequestDispatcher rs = request.getRequestDispatcher("/bidnow.jsp");
 		rs.forward(request, response);
-
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

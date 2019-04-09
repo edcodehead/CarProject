@@ -204,7 +204,7 @@
 											</c:if>
 											<c:if test="${myCar.specialPricing == true}">
 												<a type="button" class="btn btn-warning bidButton"
-													data-toggle="modal" data-target="#bidNowModal"> Bid Now</a>
+													href="BidNowServlet?id=${myCar.id}"> Bid Now</a>
 											</c:if>
 										</div>
 									</div>

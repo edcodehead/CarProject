@@ -1,0 +1,1 @@
+Ford,F1250,1983,20000.0,4.0,a,2019-04-05,Not Sold,false,VID63105,HondaAccord.jpg
